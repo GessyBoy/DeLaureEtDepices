@@ -6,7 +6,7 @@ CREATE TABLE `item` (
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO item (title) VALUES ('Stuff'), ('Doodads');
+INSERT INTO `item` (`title`) VALUES ('Stuff'), ('Doodads');
 
 DROP TABLE IF EXISTS `Users`;
 CREATE TABLE `Users` (

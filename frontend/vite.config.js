@@ -1,6 +1,8 @@
-const path = require("path");
+/* eslint-disable import/no-extraneous-dependencies */
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+
+const path = require("path");
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,5 +14,9 @@ export default defineConfig({
       "@pages": path.resolve(__dirname, "src/pages"),
       "@services": path.resolve(__dirname, "src/services"),
     },
+  },
+  server: {
+    // rajout de cette ligne pour avoir le bon port
+    port: 3000,
   },
 });

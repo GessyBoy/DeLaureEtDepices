@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import expressAPI from "../services/expressAPI";
+import { useState, useEffect } from "react";
 
-import Presentation from "../components/Presentation";
+import expressAPI from "../services/expressAPI";
 
 function ProduitsList() {
   const [produits, setProduits] = useState([]);
@@ -13,16 +12,11 @@ function ProduitsList() {
       .catch((err) => console.error(err));
   }, []);
 
-  const deuxPremiersProduits = produits.slice(0, 2);
-
   return (
     <div className="px-4 py-8">
-      <div className="flex justify-center w-full">
-        <Presentation className="w-full" />
-      </div>
-      <h1 className="text-3xl font-bold mb-4">En vedette : </h1>
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {deuxPremiersProduits.map((produit) => (
+      <h1 className="text-2xl font-bold mb-4">Produits</h1>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {produits.map((produit) => (
           <li className="bg-white shadow rounded-lg" key={produit.ID}>
             <img
               className="w-full h-64 object-cover rounded-t-lg"

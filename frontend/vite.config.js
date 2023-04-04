@@ -17,6 +17,6 @@ export default defineConfig({
   },
   server: {
     // rajout de cette ligne pour avoir le bon port
-    port: 3000,
+    port: 3001,
   },
 });

@@ -59,6 +59,12 @@ CREATE TABLE `Commandes_Produits` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `Commandes_Produits` (`Produits_ID`, `Commandes_ID`) VALUES
-  (1, 1),
-  (2, 2),
-  (3, 3);
+  (4, 4),
+  (5, 5),
+  (6, 6);
+
+ALTER TABLE `Commandes_Produits`,
+ADD CONSTRAINT `fk_Produits_ID`,
+FOREIGN KEY (`Produits_ID`),
+REFERENCES `Produits`(`ID`),
+ON DELETE CASCADE;

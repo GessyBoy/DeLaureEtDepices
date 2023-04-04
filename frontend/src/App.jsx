@@ -1,13 +1,24 @@
-import Home from "./pages/Home";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./App.css";
+import MainLayout from "./layout/MainLayout";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import PanierCommande from "./pages/PanierCommande";
+import ProduitsList from "./pages/ProduitsList";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/panier" element={<PanierCommande />} />
+          <Route path="/produits" element={<ProduitsList />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

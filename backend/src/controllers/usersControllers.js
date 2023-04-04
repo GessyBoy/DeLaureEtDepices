@@ -1,4 +1,5 @@
 const models = require("../models");
+const validateUser = require("../validator/usersValidator");
 
 const browse = (req, res) => {
   models.Users.findAll()
@@ -26,10 +27,17 @@ const read = (req, res) => {
     });
 };
 
+// eslint-disable-next-line consistent-return
 const edit = (req, res) => {
   const Users = req.body;
 
   // TODO validations (length, format...)
+
+  const validationResult = validateUser(Users);
+
+  if (validationResult) {
+    return res.status(400).send(validationResult);
+  }
 
   Users.id = parseInt(req.params.id, 10);
 
@@ -47,14 +55,36 @@ const edit = (req, res) => {
     });
 };
 
-const add = (req, res) => {
+// eslint-disable-next-line consistent-return
+const add = async (req, res) => {
   const Users = req.body;
 
   // TODO validations (length, format...)
+  const validationResult = validateUser(Users);
+
+  if (validationResult.length) {
+    return res.status(400).send(validationResult);
+  }
 
   models.Users.insert(Users)
     .then(([result]) => {
       res.location(`/Users/${result.insertId}`).sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const login = (req, res, next) => {
+  models.Users.login(req.body.mail)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        [req.Users] = rows;
+      }
+      next();
     })
     .catch((err) => {
       console.error(err);
@@ -77,4 +107,4 @@ const destroy = (req, res) => {
     });
 };
 
-module.exports = { browse, read, edit, add, destroy };
+module.exports = { browse, read, edit, add, destroy, login };

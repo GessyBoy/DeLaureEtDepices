@@ -13,23 +13,21 @@ function QuiSommesNous() {
       </p>
       <p className="text-gray-700 mb-4">
         Nous avons commencé à parler, et nous avons réalisé que nous partagions
-        une passion pour les voyages, la nourriture et la culture. Nous avons
+        une passion pour les épices, la nourriture et la culture. Nous avons
         décidé de passer la journée ensemble, explorant les marchés locaux, les
         temples bouddhistes et les rues animées de la ville.
       </p>
       <p className="text-gray-700 mb-4">
         Nous avons continué à voyager ensemble pendant plusieurs semaines, en
         visitant des paysages incroyables en Asie du Sud-Est. Nous avons mangé
-        de délicieuses spécialités locales, plongé dans les eaux cristallines
-        des îles paradisiaques et échangé des histoires de voyage autour d'une
+        de délicieuses spécialités locales et éssayé plein de choses autour
         bière fraîche.
       </p>
       <p className="text-gray-700 mb-4">
         Aujourd'hui, nous sommes toujours ensemble et nous continuons à explorer
         le monde à deux. Nous avons créé ce site pour partager notre passion
-        pour les voyages avec d'autres personnes et pour inspirer les gens à
-        sortir de leur zone de confort et à découvrir de nouvelles cultures et
-        de nouveaux horizons.
+        pour les épices et la cuisine , pour inspirer les gens à sortir de leur
+        zone de confort et à découvrir de nouveaux horizons.
       </p>
     </div>
   );

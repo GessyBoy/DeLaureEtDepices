@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import expressAPI from "../services/expressAPI";
 
 import Presentation from "../components/Presentation";
+import QuiSommesNous from "../components/QuiSommesNous";
 
 function ProduitsList() {
   const [produits, setProduits] = useState([]);
@@ -18,14 +19,14 @@ function ProduitsList() {
   return (
     <div className="px-4 py-8">
       <div className="flex justify-center w-full">
-        <Presentation className="w-full" />
+        <Presentation className="w-full filter hover:blur-sm" />
       </div>
       <h1 className="text-3xl font-bold mb-4">En vedette : </h1>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {deuxPremiersProduits.map((produit) => (
           <li className="bg-white shadow rounded-lg" key={produit.ID}>
             <img
-              className="w-full h-64 object-cover rounded-t-lg"
+              className="w-full h-64 object-cover rounded-t-lg transition duration-300 opacity-100 hover:opacity-30 cursor-pointer"
               src={produit.Image}
               alt={produit.description}
             />
@@ -36,6 +37,8 @@ function ProduitsList() {
           </li>
         ))}
       </ul>
+      <br />
+      <QuiSommesNous />
     </div>
   );
 }

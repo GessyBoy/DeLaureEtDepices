@@ -19,7 +19,7 @@ function ProduitsList() {
         {produits.map((produit) => (
           <li className="bg-white shadow rounded-lg" key={produit.ID}>
             <img
-              className="w-full h-64 object-cover rounded-t-lg"
+              className="w-full h-64 object-cover rounded-t-lg transition duration-300 opacity-100 hover:opacity-30 cursor-pointer"
               src={produit.Image}
               alt={produit.description}
             />
